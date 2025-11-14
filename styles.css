@@ -110,6 +110,21 @@ header {
   font-weight: 600;
 }
 
+.sticky-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+#new-task-btn {
+  border: none;
+  border-radius: 24px;
+  background-color: #635FC7;
+  color: #FFFFFF;
+  font-weight: 700 ;
+  font-size: 15px;
+  padding: 15px 25px;
+}
+
 .header-name-div {
   display: flex;
   align-items: center;
