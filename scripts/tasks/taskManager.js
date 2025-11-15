@@ -1,15 +1,16 @@
-import { loadTasksFromStorage, saveTasksToStorage } from "../utils/localStorage";
-import { clearExistingTasks,renderTasks } from "../ui/render";
+import { loadTasksFromStorage, saveTasksToStorage } from "./utils/localStorage.js";
+import { clearExistingTasks, renderTasks } from "./ui/render.js";
+import { resetForm } from "./formUtils.js";
 
 // add new task logic:
-
+// in short: read the form inputs -> create task obj (+add to existing) -> save updated to local storage -> clear & re-render -> reset & close modal
 
 // 1. Read input values from the new task form.
 
 export function getNewTaskFormValues() {
-  const titleInput = document.getElementById("task-title");
-  const descInput = document.getElementById("task-desc");
-  const statusSelect = document.getElementById("task-status");
+  const titleInput = document.getElementById("new-task-title");
+  const descInput = document.getElementById("new-task-desc");
+  const statusSelect = document.getElementById("new-task-status");
   
   return {
     title: titleInput.value.trim(),
@@ -18,14 +19,37 @@ export function getNewTaskFormValues() {
   };
 }
 
-// 2. Create a new task object with a unique id.
+// 2. Create a new task object
 
-// 3. Load existing tasks from localStorage.
+export function addNewTask() {
+  const { title, description, status } = getNewTaskFormValues();
 
-// 4. Save the updated tasks back.
+  if (!title) {
+    alert("Task title cannot be empty.");
+    return;
+  }
 
-// 5. Clear & re-render the board.
+  const tasks = loadTasksFromStorage();
+  const newTask = {
+    id: Date.now(),
+    title,
+    description,
+    status,
+  };
 
-// 6. Reset and close the modal.
+  const updatedTasks = [...tasks, newTask];
+
+
+    saveTasksToStorage(updatedTasks);
+    clearExistingTasks();
+    renderTasks(updatedTasks);
+    resetForm();
+
+    const modal = document.getElementById("new-task-modal");
+  if (modal) {
+    modal.close();
+  }
+}
+
 
 
