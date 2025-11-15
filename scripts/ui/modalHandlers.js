@@ -4,7 +4,7 @@
  * Opens the modal dialog with pre-filled task details.
  * @param {Object} task - The task object to display in the modal.
  */
-function openTaskModal(task) {
+export function openTaskModal(task) {
   const modal = document.getElementById("task-modal");
   const titleInput = document.getElementById("task-title");
   const descInput = document.getElementById("task-desc");
