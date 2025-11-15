@@ -123,6 +123,9 @@ header {
   font-weight: 700 ;
   font-size: 15px;
   padding: 15px 25px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .header-name-div {
@@ -440,4 +443,21 @@ form select {
   .column-div {
     padding: 24px;
   }
+
+  .new-task-text {
+    display: none;
+  }
+  .new-task-icon {
+    font-size: 20px;
+    
+  }
+
+  #new-task-btn {
+    padding: 4px 5px 4px 10px;
+    width: 33px;
+    height: 33px;
+    text-align: center;
+    margin-right: 10px;
+  }
+
 }
