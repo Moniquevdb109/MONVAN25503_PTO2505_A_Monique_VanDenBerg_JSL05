@@ -1,3 +1,7 @@
+import { getNewTaskFormValues } from ".tasks/formUtils.js";
+import { addNewTask } from "../tasks/taskManager";
+
+
 // Close handler
 
 /**
@@ -32,17 +36,33 @@ export function setupModalCloseHandler() {
 // New task handler
 export function setupNewTaskModalHandler() {
   const newTaskBtn = document.getElementById("new-task-btn");
-  const modal = document.getElementById("task-modal");
-  const titleInput = document.getElementById("task-title");
-  const descInput = document.getElementById("task-desc");
-  const statusSelect = document.getElementById("task-status");
-
+  const modal = document.getElementById("new-task-modal");
+  const closeBtn = document.getElementById("new-task-close-btn");
+  const createBtn = document.getElementById("create-task-btn");
+  const titleInput = document.getElementById("new-task-title");
+  const descInput = document.getElementById("new-task-desc");
+  const statusSelect = document.getElementById("new-task-status");
+  
   // Opening the “Add Task” modal
   newTaskBtn.addEventListener("click", () => {
-    titleInput.value = "";
-    descInput.value = "";
+    form.reset();
     statusSelect.value = "todo";
-
     modal.showModal();
   });
+
+//   New task modal close button
+  closeBtn.addEventListener("click", () => {
+    modal.close();
+  });
+
+// Create task button
+
+  createBtn.addEventListener("click", () => {
+    event.preventDefault();
+    addNewTask();
+  });
 }   
+
+
+ 
+  
