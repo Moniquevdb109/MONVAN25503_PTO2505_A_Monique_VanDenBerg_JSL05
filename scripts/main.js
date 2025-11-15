@@ -1,6 +1,6 @@
 import { loadTasksFromStorage } from "./utils/localStorage";
 import { clearExistingTasks, renderTasks } from "./ui/renderTasks";
-import { setupModalCloseHandler, setupNewTaskModalHandler } from "./ui/modalHandlers";
+import { setupModalCloseHandler, setupNewTaskModalHandler } from "./ui/modalHandlers.js";
 import { initialTasks } from "../initialData.js";
 
 // Calls loadTasksFromStorage() → get tasks
@@ -13,9 +13,11 @@ import { initialTasks } from "../initialData.js";
  * Initializes the task board and modal handlers.
  */
 function initTaskBoard() {
+  const tasks = loadTasksFromStorage();
   clearExistingTasks();
-  renderTasks(initialTasks);
+  renderTasks(tasks);
   setupModalCloseHandler();
+  setupNewTaskModalHandler();
 }
 
 // Wait until DOM is fully loaded
