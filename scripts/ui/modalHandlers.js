@@ -20,7 +20,7 @@ function openTaskModal(task) {
 /**
  * Sets up modal close behavior.
  */
-function setupModalCloseHandler() {
+export function setupModalCloseHandler() {
   const modal = document.getElementById("task-modal");
   const closeBtn = document.getElementById("close-modal-btn");
 
@@ -30,5 +30,19 @@ function setupModalCloseHandler() {
 }
 
 // New task handler
-// Opening the “Add Task” modal
-// Submitting the form triggers addNewTask()
+export function setupNewTaskModalHandler() {
+  const newTaskBtn = document.getElementById("new-task-btn");
+  const modal = document.getElementById("task-modal");
+  const titleInput = document.getElementById("task-title");
+  const descInput = document.getElementById("task-desc");
+  const statusSelect = document.getElementById("task-status");
+
+  // Opening the “Add Task” modal
+  newTaskBtn.addEventListener("click", () => {
+    titleInput.value = "";
+    descInput.value = "";
+    statusSelect.value = "todo";
+
+    modal.showModal();
+  });
+}   
