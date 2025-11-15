@@ -1,7 +1,6 @@
-import { loadTasksFromStorage } from "./utils/localStorage";
-import { clearExistingTasks, renderTasks } from "./ui/renderTasks";
+import { loadTasksFromStorage } from "./utils/localStorage.js";
+import { clearExistingTasks, renderTasks } from "./ui/render.js";
 import { setupModalCloseHandler, setupNewTaskModalHandler } from "./ui/modalHandlers.js";
-import { initialTasks } from "../initialData.js";
 
 // Calls loadTasksFromStorage() → get tasks
 // Calls clearExistingTasks() → empty the DOM

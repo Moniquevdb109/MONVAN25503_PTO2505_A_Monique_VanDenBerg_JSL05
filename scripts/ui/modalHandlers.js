@@ -1,5 +1,5 @@
-import { getNewTaskFormValues } from ".tasks/formUtils.js";
-import { addNewTask } from "../tasks/taskManager";
+import { getNewTaskFormValues } from "./tasks/formUtils.js";
+import { addNewTask } from "./tasks/taskManager.js";
 
 
 // Close handler
@@ -39,8 +39,7 @@ export function setupNewTaskModalHandler() {
   const modal = document.getElementById("new-task-modal");
   const closeBtn = document.getElementById("new-task-close-btn");
   const createBtn = document.getElementById("create-task-btn");
-  const titleInput = document.getElementById("new-task-title");
-  const descInput = document.getElementById("new-task-desc");
+  const form = document.getElementById("new-task-form");
   const statusSelect = document.getElementById("new-task-status");
   
   // Opening the “Add Task” modal
