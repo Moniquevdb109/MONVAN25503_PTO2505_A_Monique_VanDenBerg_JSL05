@@ -321,6 +321,19 @@ form select {
   padding-right: 1rem;
 }
 
+#create-task-btn {
+  margin-top: 20px;
+  width: 100%;
+  background-color: #635fc7;
+  color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 174px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
 /* ========================
    Responsive Styles
 ======================== */
