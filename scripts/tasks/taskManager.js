@@ -1,5 +1,5 @@
-import { loadTasksFromStorage, saveTasksToStorage } from "./utils/localStorage.js";
-import { clearExistingTasks, renderTasks } from "./ui/render.js";
+import { loadTasksFromStorage, saveTasksToStorage } from "../utils/localStorage.js";
+import { clearExistingTasks, renderTasks } from "../ui/render.js";
 import { resetForm } from "./formUtils.js";
 
 // add new task logic:

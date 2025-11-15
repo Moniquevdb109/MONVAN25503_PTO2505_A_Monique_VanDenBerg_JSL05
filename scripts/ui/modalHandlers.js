@@ -1,5 +1,5 @@
-import { getNewTaskFormValues } from "./tasks/formUtils.js";
-import { addNewTask } from "./tasks/taskManager.js";
+import { addNewTask } from "../tasks/taskManager.js";
+import { resetForm } from "../tasks/formUtils.js";
 
 
 // Close handler
