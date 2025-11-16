@@ -7,7 +7,6 @@ import { setupModalCloseHandler, setupNewTaskModalHandler } from "./ui/modalHand
 // Calls renderTasks(tasks) → display tasks
 // Sets up modal event handlers (setupModalCloseHandler(), setupNewTaskModalHandler())
 
-
 /**
  * Initializes the task board and modal handlers.
  */
