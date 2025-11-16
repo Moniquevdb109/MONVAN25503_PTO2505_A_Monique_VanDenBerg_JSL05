@@ -1,9 +1,6 @@
 import { addNewTask } from "../tasks/taskManager.js";
 import { resetForm } from "../tasks/formUtils.js";
 
-
-// Close handler
-
 /**
  * Opens the modal dialog with pre-filled task details.
  * @param {Object} task - The task object to display in the modal.
@@ -33,7 +30,12 @@ export function setupModalCloseHandler() {
   });
 }
 
-// New task handler
+/**
+ * Sets up event listeners for the "New Task" modal.
+ * Handles opening and closing the modal, resetting the form,
+ * setting the default status to "todo", and creating a new task
+ * when the user clicks the "Create task" button.
+ */
 export function setupNewTaskModalHandler() {
   const newTaskBtn = document.getElementById("new-task-btn");
   const modal = document.getElementById("new-task-modal");
@@ -55,9 +57,8 @@ export function setupNewTaskModalHandler() {
   });
 
 // Create task button
-
-  createBtn.addEventListener("click", () => {
-    event.preventDefault();
+  createBtn.addEventListener("click", (event) => {
+    event.preventDefault(); // stops form from submitting normally, default behaviour will refresh page
     addNewTask();
   });
 }   

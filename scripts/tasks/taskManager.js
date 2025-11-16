@@ -2,10 +2,13 @@ import { loadTasksFromStorage, saveTasksToStorage } from "../utils/localStorage.
 import { clearExistingTasks, renderTasks } from "../ui/render.js";
 import { resetForm } from "./formUtils.js";
 
-// add new task logic:
 // in short: read the form inputs -> create task obj (+add to existing) -> save updated to local storage -> clear & re-render -> reset & close modal
 
-// 1. Read input values from the new task form.
+/**
+ * Reads values from the "new task" form.
+ * Grabs title, description, and status from the inputs.
+ * @returns {{title: string, description: string, status: string}}
+ */
 
 export function getNewTaskFormValues() {
   const titleInput = document.getElementById("new-task-title");
@@ -19,14 +22,20 @@ export function getNewTaskFormValues() {
   };
 }
 
-// 2. Create a new task object
+/**
+ * Creates and saves a new task based on the "new task" form values.
+ * Validates the title, updates local storage, re-renders the task list,
+ * resets the form, and closes the new task modal.
+ * Shows an alert and aborts if the title is empty.
+ * @returns {void} 
+ */
 
 export function addNewTask() {
   const { title, description, status } = getNewTaskFormValues();
 
   if (!title) {
     alert("Task title cannot be empty.");
-    return;
+    return; // stops code from running further if no title is provided
   }
 
   const tasks = loadTasksFromStorage();
