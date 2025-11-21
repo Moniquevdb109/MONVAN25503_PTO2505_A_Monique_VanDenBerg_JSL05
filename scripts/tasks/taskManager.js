@@ -38,25 +38,25 @@ export function addNewTask() {
     return; // stops code from running further if no title is provided
   }
 
-  const tasks = loadTasksFromStorage();
-  const newTask = {
+  const tasks = loadTasksFromStorage(); // existing tasks
+  const newTask = { // create new task object
     id: Date.now(),
     title,
     description,
     status,
   };
 
-  const updatedTasks = [...tasks, newTask];
+  const updatedTasks = [...tasks, newTask]; // add new task to existing tasks
 
 
-    saveTasksToStorage(updatedTasks);
-    clearExistingTasks();
-    renderTasks(updatedTasks);
-    resetForm();
+    saveTasksToStorage(updatedTasks); // save updated tasks to local storage  
+    clearExistingTasks(); // clear current task display
+    renderTasks(updatedTasks); // re-render tasks with updated list
+    resetForm(); // reset the new task form
 
     const modal = document.getElementById("new-task-modal");
   if (modal) {
-    modal.close();
+    modal.close(); // finds modal -> if open -> close it
   }
 }
 

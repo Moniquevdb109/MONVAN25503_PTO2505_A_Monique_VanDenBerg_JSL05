@@ -6,8 +6,8 @@ import { createTaskElement } from "./taskElement.js";
  * @returns {HTMLElement|null} The container element, or null if not found.
  */
 function getTaskContainerByStatus(status) {
-  const column = document.querySelector(`.column-div[data-status="${status}"]`);
-  return column ? column.querySelector(".tasks-container") : null;
+  const column = document.querySelector(`.column-div[data-status="${status}"]`); //look for column with matching status
+  return column ? column.querySelector(".tasks-container") : null; //if found, return its tasks container else null
 }
 
 /**
